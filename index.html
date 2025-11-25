@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intrusion Detection System</title>
+    <style>
+        body {
+            background: #f2f2f2;
+            font-family: Arial;
+            padding: 30px;
+        }
+        .box {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Intrusion Detection</h2>
+
+    <form action="/predict" method="POST">
+
+        <label>Duration</label>
+        <input type="number" name="duration" required>
+
+        <label>Protocol Type</label>
+        <select name="protocol_type" required>
+            <option value="tcp">tcp</option>
+            <option value="udp">udp</option>
+            <option value="icmp">icmp</option>
+        </select>
+
+        <label>Service</label>
+        <select name="service" required>
+            <option value="http">http</option>
+            <option value="ftp">ftp</option>
+            <option value="smtp">smtp</option>
+            <option value="domain_u">domain_u</option>
+            <option value="other">other</option>
+        </select>
+
+        <label>Flag</label>
+        <select name="flag" required>
+            <option value="SF">SF</option>
+            <option value="S0">S0</option>
+            <option value="REJ">REJ</option>
+            <option value="RSTR">RSTR</option>
+            <option value="OTH">OTH</option>
+        </select>
+
+        <label>Source Bytes</label>
+        <input type="number" name="src_bytes" required>
+
+        <label>Destination Bytes</label>
+        <input type="number" name="dst_bytes" required>
+
+        <label>Wrong Fragment</label>
+        <input type="number" name="wrong_fragment" required>
+
+        <label>Urgent</label>
+        <input type="number" name="urgent" required>
+
+        <button type="submit">Predict</button>
+    </form>
+</div>
+
+</body>
+</html>
